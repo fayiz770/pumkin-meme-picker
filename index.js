@@ -2,6 +2,8 @@ import { catsData } from './data.js'
 
 import { emotionRadios, getImageBtn, gifsOnlyOption, images} from './consts.js'
 
+let renderedCatImg = ''
+
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
 
@@ -17,13 +19,18 @@ function highlightCheckedOption(e){
 
 function renderCat(){
     const catObject = getSingleCatObject()
-    images.innerHTML +=  `
-        <img 
-        class="cat-img" 
-        src="./images/${catObject.image}"
-        alt="${catObject.alt}"
-        >
-        `
+    const existingImg = document.getElementById(catObject.id)
+
+    if(!existingImg){
+        images.innerHTML +=  `
+            <img 
+            id = ${catObject.id}
+            class="cat-img" 
+            src="./images/${catObject.image}"
+            alt="${catObject.alt}"
+            >
+            `
+    }
 }
 
 function getSingleCatObject(){
