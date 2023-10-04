@@ -178,6 +178,7 @@ input[type="radio"]{
 /* images */
 
 .images {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;

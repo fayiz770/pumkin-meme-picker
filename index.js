@@ -1,6 +1,6 @@
 import { catsData } from './data.js'
 
-import { emotionRadios, getImageBtn, gifsOnlyOption, images} from './consts.js'
+import { emotionRadios, getImageBtn, gifsOnlyOption, images, getAllImagesBtn } from './consts.js'
 
 let renderedCatImg = ''
 
@@ -8,6 +8,8 @@ emotionRadios.addEventListener('change', highlightCheckedOption)
 
 
 getImageBtn.addEventListener('click', renderCat)
+
+getAllImagesBtn.addEventListener('click', getAllImages)
 
 function highlightCheckedOption(e){
     const radios = document.getElementsByClassName('radio')
@@ -30,6 +32,8 @@ function renderCat(){
             alt="${catObject.alt}"
             >
             `
+    }else{
+        console.log('hello')
     }
 }
 
@@ -61,6 +65,20 @@ function getMatchingCatsArray(){
         })
         return matchingCatsArray 
     }  
+}
+
+function getAllImages(){
+    images.innerHTML = ''
+    catsData.forEach(e => {
+        images.innerHTML +=  `
+            <img 
+            id = ${e.id}
+            class="cat-img" 
+            src="./images/${e.image}"
+            alt="${e.alt}"
+            >
+            `
+    })
 }
 
 function getEmotionsArray(cats){
