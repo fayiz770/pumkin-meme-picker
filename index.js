@@ -21,20 +21,14 @@ function highlightCheckedOption(e){
 
 function renderCat(){
     const catObject = getSingleCatObject()
-    const existingImg = document.getElementById(catObject.id)
-
-    if(!existingImg){
-        images.innerHTML +=  `
-            <img 
-            id = ${catObject.id}
-            class="cat-img" 
-            src="./images/${catObject.image}"
-            alt="${catObject.alt}"
-            >
-            `
-    }else{
-        console.log('hello')
-    }
+    images.innerHTML =  `
+        <img 
+        id = ${catObject.id}
+        class="cat-img" 
+        src="./images/${catObject.image}"
+        alt="${catObject.alt}"
+        >
+        `
 }
 
 function getSingleCatObject(){
